@@ -1,0 +1,13 @@
+
+Pipeline { 
+   agent { 
+    // it defines the where the pipeline will execute 
+    agent {docker node:18}
+   }
+    
+    stages{
+       stage ("Build"){
+        sh 'node --version'
+       }
+    }
+}
