@@ -1,13 +1,20 @@
-
-Pipeline { 
-   agent { 
-    // it defines the where the pipeline will execute 
-    agent {docker node:18}
-   }
+pipeline {
+    agent {
+        // Define where the pipeline will execute
+        agent {
+            docker { 
+                // Specify the Docker image to use
+                image 'node:18' 
+            }
+        }
+    }
     
-    stages{
-       stage ("Build"){
-        sh 'node --version'
-       }
+    stages {
+        stage("Build") {
+            steps {
+                // Execute a shell command to print the Node.js version
+                sh 'node --version'
+            }
+        }
     }
 }
